@@ -13,10 +13,22 @@ stdout equ <rbp-16>
 	puts	proc
 	push rbp	
 	mov rbp, rsp
+<<<<<<< HEAD
+	sub rsp, 40
+	mov rcx,offset string
+	mov stringAddrs,rcx	;convenient local variable addressing 
+	; for element in string addrs inc stringLength if not 0
+	xor rcx,rcx
+	LoopStart:
+	cmp dword ptr[stringAddrs + rcx], 0
+	jz LoopEnd
+	inc rcx
+=======
 	sub rsp, 70h
 	;double address
 	mov qword ptr [stringAddrs], rcx	
 	mov rdx, qword ptr [stringAddrs]
+>>>>>>> fbf93af (Update main.asm)
 
 	mov bl, byte ptr [rdx]
 	mov rcx, -11
